@@ -4,10 +4,12 @@
  */
 package Pages_Java;
 
+import static Pages_Java.LoginPage.con;
 import static Pages_Java.LoginPage.rs;
 import static Pages_Java.LoginPage.stmt;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 
@@ -15,35 +17,34 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author RICK ASTLEY
  */
-public class AdminListToEditDB extends javax.swing.JFrame {
+public class Employee_Details extends javax.swing.JFrame {
 
     /**
-     * Creates new form AdminUserEditDB
+     * Creates new form UserUpdate_ViewData
      */
-    public AdminListToEditDB() {
+    public Employee_Details() {
         initComponents();
-        
-         LoginPage lg = new LoginPage();
+        LoginPage lg = new LoginPage();
         lg.Connect();
         
         
         try
         {
-         rs = stmt.executeQuery("select * from user_details where Type_of_user='User'");
+         rs = stmt.executeQuery("select * from employee");
             
             
             DefaultTableModel dtm = (DefaultTableModel)jTable1.getModel();
               while(rs.next())
             {
-               dtm.addRow(new Object[]{rs.getString("E_Id"),rs.getString("Name")});
+               dtm.addRow(new Object[]{rs.getString("ID"),rs.getString("Name"),rs.getString("Salary"),rs.getString("Dep_ID")});
             }
         }
          catch(SQLException ex){
             System.out.println("Failed"+ex);
-        }
+        }    
     }
     
-     /**
+    /**
      * function to close the window
      */
     public void close(){
@@ -61,11 +62,9 @@ public class AdminListToEditDB extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        back1 = new javax.swing.JButton();
+        back = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -73,16 +72,15 @@ public class AdminListToEditDB extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(94, 46, 46));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 90)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 70)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(236, 208, 185));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("USERS ALLOWED ");
+        jLabel1.setText("Employees Details");
 
-        back1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        back1.setText("BACK");
-        back1.addActionListener(new java.awt.event.ActionListener() {
+        back.setText("BACK");
+        back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                back1ActionPerformed(evt);
+                backActionPerformed(evt);
             }
         });
 
@@ -91,9 +89,17 @@ public class AdminListToEditDB extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Name"
+                "Emp Id", "Name", "Salary", "DepId"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -101,26 +107,29 @@ public class AdminListToEditDB extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(back1)
-                .addGap(1481, 1786, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(back)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 545, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 699, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(496, 496, 496))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(539, 539, 539))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(back1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addGap(144, 144, 144)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(239, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(back))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel1)
+                        .addGap(171, 171, 171)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(362, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -137,12 +146,12 @@ public class AdminListToEditDB extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void back1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back1ActionPerformed
+    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
         // TODO add your handling code here:
         close();
-        Administrator a = new Administrator();
-        a.setVisible(true);
-    }//GEN-LAST:event_back1ActionPerformed
+        Update_Employee_Data_Option u = new Update_Employee_Data_Option();
+        u.setVisible(true);
+    }//GEN-LAST:event_backActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,14 +170,18 @@ public class AdminListToEditDB extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminListToEditDB.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Employee_Details.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminListToEditDB.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Employee_Details.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminListToEditDB.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Employee_Details.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminListToEditDB.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Employee_Details.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -177,15 +190,13 @@ public class AdminListToEditDB extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminListToEditDB().setVisible(true);
+                new Employee_Details().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton back1;
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JButton back;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

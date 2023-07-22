@@ -39,46 +39,105 @@ public class Administrator extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel8 = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
         UsrList = new javax.swing.JButton();
-        ViewAllow = new javax.swing.JButton();
         PassUpdate = new javax.swing.JButton();
+        UsrList1 = new javax.swing.JButton();
+        UsrList2 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         back = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
+        updateData = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setBackground(new java.awt.Color(255, 210, 197));
 
-        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(60, 63, 65));
-        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("ADMINISTRATOR");
-
-        UsrList.setText("User list to edit db");
+        UsrList.setBackground(new java.awt.Color(94, 46, 46));
+        UsrList.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        UsrList.setForeground(new java.awt.Color(236, 208, 185));
+        UsrList.setText("USERS ALLOWED");
         UsrList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UsrListActionPerformed(evt);
             }
         });
 
-        ViewAllow.setText("Viewers Allowed");
-        ViewAllow.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ViewAllowActionPerformed(evt);
-            }
-        });
-
-        PassUpdate.setText("Password Update");
+        PassUpdate.setBackground(new java.awt.Color(94, 46, 46));
+        PassUpdate.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        PassUpdate.setForeground(new java.awt.Color(236, 208, 185));
+        PassUpdate.setText("PASSWORD UPDATE");
         PassUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PassUpdateActionPerformed(evt);
             }
         });
 
+        UsrList1.setBackground(new java.awt.Color(94, 46, 46));
+        UsrList1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        UsrList1.setForeground(new java.awt.Color(236, 208, 185));
+        UsrList1.setText("REMOVE USERS");
+        UsrList1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UsrList1ActionPerformed(evt);
+            }
+        });
+
+        UsrList2.setBackground(new java.awt.Color(94, 46, 46));
+        UsrList2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        UsrList2.setForeground(new java.awt.Color(236, 208, 185));
+        UsrList2.setText("ADD USERS");
+        UsrList2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UsrList2ActionPerformed(evt);
+            }
+        });
+
+        jPanel1.setBackground(new java.awt.Color(94, 46, 46));
+
+        back.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         back.setText("BACK");
         back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backActionPerformed(evt);
+            }
+        });
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 100)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(236, 208, 185));
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("ADMINISTRATOR");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(back)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(back)
+                .addGap(271, 271, 271)
+                .addComponent(jLabel19)
+                .addContainerGap(517, Short.MAX_VALUE))
+        );
+
+        updateData.setBackground(new java.awt.Color(94, 46, 46));
+        updateData.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        updateData.setForeground(new java.awt.Color(236, 208, 185));
+        updateData.setText("Veiw All Employee Data");
+        updateData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateDataActionPerformed(evt);
             }
         });
 
@@ -87,56 +146,43 @@ public class Administrator extends javax.swing.JFrame {
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(111, 111, 111)
-                .addComponent(UsrList, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ViewAllow, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(110, 110, 110))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(344, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 359, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(314, 314, 314))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                        .addComponent(PassUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(358, 358, 358))))
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(back)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(UsrList1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(UsrList2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(UsrList, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE))
+                    .addComponent(PassUpdate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateData, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(278, 278, 278))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(back)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel19)
-                .addGap(63, 63, 63)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UsrList, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ViewAllow, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
-                .addComponent(PassUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(132, 132, 132))
+                .addGap(200, 200, 200)
+                .addComponent(UsrList, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(UsrList2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(UsrList1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51)
+                .addComponent(PassUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addComponent(updateData, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(1000, Short.MAX_VALUE)
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51))
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(261, Short.MAX_VALUE)
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(306, 306, 306))
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -147,13 +193,6 @@ public class Administrator extends javax.swing.JFrame {
         AdminListToEditDB n = new AdminListToEditDB();
         n.setVisible(true);
     }//GEN-LAST:event_UsrListActionPerformed
-
-    private void ViewAllowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewAllowActionPerformed
-        // TODO add your handling code here:
-        close();
-        AdminViewAllowed av = new AdminViewAllowed();
-        av.setVisible(true);
-    }//GEN-LAST:event_ViewAllowActionPerformed
 
     private void PassUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PassUpdateActionPerformed
         close();
@@ -167,6 +206,27 @@ public class Administrator extends javax.swing.JFrame {
         LoginPage lp = new LoginPage();
         lp.setVisible(true);
     }//GEN-LAST:event_backActionPerformed
+
+    private void UsrList1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsrList1ActionPerformed
+        // TODO add your handling code here:
+        close();
+        Remove_User ru = new Remove_User();
+        ru.setVisible(true);
+    }//GEN-LAST:event_UsrList1ActionPerformed
+
+    private void UsrList2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsrList2ActionPerformed
+        // TODO add your handling code here:
+        close();
+        Add_User au = new Add_User();
+        au.setVisible(true);
+    }//GEN-LAST:event_UsrList2ActionPerformed
+
+    private void updateDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateDataActionPerformed
+        // TODO add your handling code here:
+        close();
+        Employee_Details1 ue = new Employee_Details1();
+        ue.setVisible(true);
+    }//GEN-LAST:event_updateDataActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,9 +266,12 @@ public class Administrator extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton PassUpdate;
     private javax.swing.JButton UsrList;
-    private javax.swing.JButton ViewAllow;
+    private javax.swing.JButton UsrList1;
+    private javax.swing.JButton UsrList2;
     private javax.swing.JButton back;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JButton updateData;
     // End of variables declaration//GEN-END:variables
 }
